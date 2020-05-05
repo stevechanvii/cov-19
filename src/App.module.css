@@ -14,6 +14,16 @@ body {
     margin-top: 50px;
 }
 
+.map {
+    width: 80%;
+    height: auto;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
 @media (max-width: 770px) {
     .container {
         margin: 0 10%;

@@ -6,6 +6,7 @@ import CountryPicker from './components/CountryPicker/CountryPicker';
 import MapChart from './components/MapChart/MapChart';
 import { fetchData } from './api';
 import coronaImage from './images/image.png';
+import ReactTooltip from 'react-tooltip';
 
 import styles from './App.module.css';
 
@@ -13,6 +14,7 @@ class App extends React.Component {
     state = {
         data: {},
         country: '',
+        content: '',
     };
 
     async componentDidMount() {
@@ -26,6 +28,11 @@ class App extends React.Component {
         this.setState({ data: covData, country: country });
     };
 
+    handleContentChange = (content) => {
+        console.log(content);
+        this.setState({ ...this.state, content: content });
+    };
+
     render() {
         const { data, country } = this.state;
 
@@ -34,7 +41,10 @@ class App extends React.Component {
                 <img src={coronaImage} className={styles.image} alt='COVID-19' />
                 <Cards data={data} />
                 <CountryPicker handleCountryChange={this.handleCountryChange} />
-                <MapChart />
+                <div className={styles.map}>
+                    <MapChart countryPicked={this.handleContentChange} />
+                    <ReactTooltip>{this.state.content}</ReactTooltip>
+                </div>
                 <Chart data={data} country={country} />
             </div>
         );
