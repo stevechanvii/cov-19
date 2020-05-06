@@ -22,15 +22,15 @@
 }
 
 .confirmed {
-    border-bottom: 5px solid rgba(0, 153, 255, 0.5);
+    border-bottom: 5px solid var(--color-confirmed);
 }
 
 .recovered {
-    border-bottom: 5px solid rgba(108, 238, 173, 0.6);
+    border-bottom: 5px solid var(--color-recovered);
 }
 
 .deaths {
-    border-bottom: 5px solid rgba(255, 77, 77, 0.8);
+    border-bottom: 5px solid var(--color-deaths);
 }
 
 .information__card__item__title {
