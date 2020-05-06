@@ -1,7 +1,7 @@
 import React, { useEffect, useState, memo } from 'react';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 
-import styles from './MapChart.module.css';
+// import styles from './MapChart.module.css';
 
 const MapChart = ({ countryHovered, handleCountryChange }) => {
     useEffect(() => {});
@@ -42,7 +42,7 @@ const MapChart = ({ countryHovered, handleCountryChange }) => {
                                     }}
                                     onClick={() => onMapClicked(geo.properties)}
                                     fill={
-                                        countrySelected == geo.properties.NAME
+                                        countrySelected === geo.properties.NAME
                                             ? '#668cff'
                                             : '#9998A3'
                                     }

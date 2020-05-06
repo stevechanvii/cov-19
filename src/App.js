@@ -2,10 +2,9 @@ import React from 'react';
 
 import Cards from './components/Cards/Cards';
 import Chart from './components/Chart/Chart';
-import CountryPicker from './components/CountryPicker/CountryPicker';
+// import CountryPicker from './components/CountryPicker/CountryPicker';
 import MapChart from './components/MapChart/MapChart';
 import { fetchCountryData, fetchGlobalData } from './api';
-import coronaImage from './images/image.png';
 import ReactTooltip from 'react-tooltip';
 
 import styles from './App.module.css';
@@ -27,14 +26,20 @@ class App extends React.Component {
             lastUpdate: covData.lastUpdate,
             countryData: covContryData,
         });
-        console.log('ccc');
     }
 
     onPickerCountryChange = async (country) => {
         // fetch the data
+        let countrySelected = country;
         try {
-            const covData = await fetchCountryData(country);
-            this.setState({ countryData: covData, country: country });
+            console.log(country);
+            if (country === 'United States of America') {
+                countrySelected = 'USA';
+            }
+            const covData = await fetchCountryData(countrySelected);
+            if (!covData.error) {
+                this.setState({ countryData: covData, country: countrySelected });
+            }
         } catch (error) {
             console.log(error);
         }

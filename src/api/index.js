@@ -54,6 +54,9 @@ export const fetchCountryData = async (country) => {
         };
     } catch (error) {
         console.log(error);
+        return {
+            error: `${country} does not have any info.`,
+        };
     }
 };
 
