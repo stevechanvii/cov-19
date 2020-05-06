@@ -2,7 +2,6 @@ import React from 'react';
 
 import Cards from './components/Cards/Cards';
 import Chart from './components/Chart/Chart';
-import CardNew from './components/Cards/CardNew';
 import CountryPicker from './components/CountryPicker/CountryPicker';
 import MapChart from './components/MapChart/MapChart';
 import { fetchCountryData, fetchGlobalData } from './api';
@@ -51,12 +50,9 @@ class App extends React.Component {
 
         return (
             <div className={styles.container}>
-                {/* <img src={coronaImage} className={styles.image} alt='COVID-19' /> */}
                 <h1 className={styles.title}>COVID-19 TRACKER</h1>
-                <CardNew conData={countryData} gloData={globalData} country={country} />
-                {/* <Cards conData={countryData} gloData={globalData} /> */}
-                {new Date(this.state.lastUpdate).toDateString()}
-                <CountryPicker handleCountryChange={this.onPickerCountryChange} />
+                <Cards conData={countryData} gloData={globalData} country={country} />
+                {/* <CountryPicker handleCountryChange={this.onPickerCountryChange} /> */}
                 <div className={styles.map}>
                     <MapChart
                         countryHovered={this.onMapCountryHover}

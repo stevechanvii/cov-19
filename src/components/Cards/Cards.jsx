@@ -1,81 +1,33 @@
 import React from 'react';
-import { Card, CardContent, Typography, Grid } from '@material-ui/core';
-import CountUp from 'react-countup';
-import cx from 'classnames';
+import CardItem from './CardItem';
+import Moment from 'react-moment';
 
 import styles from './Cards.module.css';
 
-const Cards = ({ conData, gloData }) => {
+const Cards = ({ conData, gloData, country }) => {
     if (!conData.confirmed) {
         return 'Loading';
     }
+
     return (
-        <div className={styles.container}>
-            <Grid container spacing={3} justify='center'>
-                <Grid
-                    item
-                    component={Card}
-                    xs={12}
-                    md={3}
-                    className={cx(styles.card, styles.infected)}
-                >
-                    <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Infected
-                        </Typography>
-                        <Typography variant='h5'>
-                            <CountUp
-                                start={0}
-                                end={conData.confirmed.value}
-                                duartion={3}
-                                separator=','
-                            />
-                        </Typography>
-                    </CardContent>
-                </Grid>
-                <Grid
-                    item
-                    component={Card}
-                    xs={12}
-                    md={3}
-                    className={cx(styles.card, styles.recovered)}
-                >
-                    <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Recovered
-                        </Typography>
-                        <Typography variant='h5'>
-                            <CountUp
-                                start={0}
-                                end={conData.recovered.value}
-                                duartion={3}
-                                separator=','
-                            />
-                        </Typography>
-                    </CardContent>
-                </Grid>
-                <Grid
-                    item
-                    component={Card}
-                    xs={12}
-                    md={3}
-                    className={cx(styles.card, styles.deaths)}
-                >
-                    <CardContent>
-                        <Typography color='textSecondary' gutterBottom>
-                            Deaths
-                        </Typography>
-                        <Typography variant='h5'>
-                            <CountUp
-                                start={0}
-                                end={conData.deaths.value}
-                                duartion={3}
-                                separator=','
-                            />
-                        </Typography>
-                    </CardContent>
-                </Grid>
-            </Grid>
+        <div className={styles.information}>
+            <div className={styles.information__card}>
+                {Object.keys(conData).map((key, index) => (
+                    <CardItem
+                        countryNum={conData[key].value}
+                        globalNum={gloData[key].value}
+                        country={country}
+                        title={key}
+                        key={index}
+                    />
+                ))}
+            </div>
+            <div className={styles.information__date}>
+                Last Update:{' '}
+                <span>
+                    <Moment format='YYYY/MM/DD HH:mm'>{gloData.lastUpdate}</Moment>
+                </span>
+            </div>
         </div>
     );
 };
