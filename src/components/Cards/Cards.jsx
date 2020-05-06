@@ -5,8 +5,8 @@ import cx from 'classnames';
 
 import styles from './Cards.module.css';
 
-const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
-    if (!confirmed) {
+const Cards = ({ conData, gloData }) => {
+    if (!conData.confirmed) {
         return 'Loading';
     }
     return (
@@ -24,12 +24,13 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                             Infected
                         </Typography>
                         <Typography variant='h5'>
-                            <CountUp start={0} end={confirmed.value} duartion={3} seperator=',' />
+                            <CountUp
+                                start={0}
+                                end={conData.confirmed.value}
+                                duartion={3}
+                                separator=','
+                            />
                         </Typography>
-                        <Typography color='textSecondary'>
-                            {new Date(lastUpdate).toDateString()}
-                        </Typography>
-                        <Typography variant='h5'>Number of active cases of COVID-19</Typography>
                     </CardContent>
                 </Grid>
                 <Grid
@@ -44,12 +45,13 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                             Recovered
                         </Typography>
                         <Typography variant='h5'>
-                            <CountUp start={0} end={recovered.value} duartion={3} seperator=',' />
+                            <CountUp
+                                start={0}
+                                end={conData.recovered.value}
+                                duartion={3}
+                                separator=','
+                            />
                         </Typography>
-                        <Typography color='textSecondary'>
-                            {new Date(lastUpdate).toDateString()}
-                        </Typography>
-                        <Typography variant='h5'>Number of recoveries of COVID-19</Typography>
                     </CardContent>
                 </Grid>
                 <Grid
@@ -61,15 +63,16 @@ const Cards = ({ data: { confirmed, recovered, deaths, lastUpdate } }) => {
                 >
                     <CardContent>
                         <Typography color='textSecondary' gutterBottom>
-                            Edaths
+                            Deaths
                         </Typography>
                         <Typography variant='h5'>
-                            <CountUp start={0} end={deaths.value} duartion={3} seperator=',' />
+                            <CountUp
+                                start={0}
+                                end={conData.deaths.value}
+                                duartion={3}
+                                separator=','
+                            />
                         </Typography>
-                        <Typography color='textSecondary'>
-                            {new Date(lastUpdate).toDateString()}
-                        </Typography>
-                        <Typography variant='h5'>Number of deaths of COVID-19</Typography>
                     </CardContent>
                 </Grid>
             </Grid>

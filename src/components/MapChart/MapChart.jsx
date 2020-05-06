@@ -3,7 +3,7 @@ import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simp
 
 import styles from './MapChart.module.css';
 
-const MapChart = ({ countryPicked }) => {
+const MapChart = ({ countryHovered, handleCountryChange }) => {
     useEffect(() => {});
 
     const [countrySelected, setCountrySelected] = useState('');
@@ -12,7 +12,8 @@ const MapChart = ({ countryPicked }) => {
         'https://raw.githubusercontent.com/zcreativelabs/react-simple-maps/master/topojson-maps/world-110m.json';
 
     const onMapClicked = (e) => {
-        console.log(e);
+        // console.log(e);
+        handleCountryChange(e.NAME);
         setCountrySelected(e.NAME);
     };
 
@@ -34,10 +35,10 @@ const MapChart = ({ countryPicked }) => {
                                     strokeWidth='0.5'
                                     onMouseEnter={() => {
                                         const { NAME } = geo.properties;
-                                        countryPicked(`${NAME}`);
+                                        countryHovered(`${NAME}`);
                                     }}
                                     onMouseLeave={() => {
-                                        countryPicked('');
+                                        countryHovered('');
                                     }}
                                     onClick={() => onMapClicked(geo.properties)}
                                     fill={
