@@ -40,7 +40,7 @@ export const fetchData = async (country) => {
  * @param {String} country
  */
 export const fetchCountryData = async (country) => {
-    const countryUrl = `${url}/countries/${country}`;
+    const countryUrl = `${url}/countries/${country.toLowerCase()}`;
 
     try {
         const {
@@ -94,7 +94,8 @@ export const fetchDailyData = async () => {
             date: dailyData.reportDate,
         }));
 
-        return modifiedData;
+        // get the data of last 60 days
+        return modifiedData.slice(-60);
     } catch (error) {
         console.log(error);
     }

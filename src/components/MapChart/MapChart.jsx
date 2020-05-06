@@ -42,21 +42,23 @@ const MapChart = ({ countryHovered, handleCountryChange }) => {
                                 }}
                                 onClick={() => onMapClicked(geo.properties)}
                                 fill={
-                                    countrySelected === geo.properties.NAME ? '#668cff' : '#9998A3'
+                                    countrySelected === geo.properties.NAME
+                                        ? 'rgba(0, 153, 255, 0.6)'
+                                        : '#9998A3'
                                 }
                                 style={{
                                     default: {
                                         outline: 'none',
                                     },
                                     hover: {
-                                        fill: '#809fff',
-                                        stroke: '#3366ff',
+                                        fill: 'rgba(0, 153, 255, 0.6)',
+                                        stroke: 'rgba(0, 153, 255, 0.8)',
                                         strockWidth: 0.5,
                                         outline: 'none',
                                     },
                                     pressed: {
-                                        fill: '#DD4132',
-                                        stroke: '#9E1030',
+                                        fill: 'rgba(0, 153, 255, 0.7)',
+                                        stroke: 'rgba(0, 153, 255)',
                                         strokeWidth: 0.75,
                                         outline: 'none',
                                         transition: 'all 250ms',

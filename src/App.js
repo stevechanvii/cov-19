@@ -26,6 +26,7 @@ class App extends React.Component {
             lastUpdate: covData.lastUpdate,
             countryData: covContryData,
         });
+        console.log('componentDidMount');
     }
 
     onPickerCountryChange = async (country) => {
