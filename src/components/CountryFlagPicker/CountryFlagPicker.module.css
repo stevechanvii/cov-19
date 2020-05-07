@@ -1,0 +1,21 @@
+.flag {
+    width: 100%;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.flag__item {
+    cursor: pointer;
+    transition: all 0.4s;
+    transform-origin: bottom;
+}
+
+.flag__item:not(:last-child) {
+    margin-right: 2rem;
+}
+
+.flag__item:hover {
+    transform: scale(1.25);
+}

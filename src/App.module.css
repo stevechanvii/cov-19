@@ -47,10 +47,10 @@ body {
 }
 
 .map {
-    width: 90%;
+    width: 100%;
     height: auto;
-    margin-top: 2rem;
-    margin-bottom: -15rem;
+    margin-top: -2rem;
+    margin-bottom: -25rem;
 }
 
 svg {
@@ -68,6 +68,7 @@ svg {
     }
 
     .map {
+        margin-top: 0;
         margin-bottom: -7rem;
     }
 }
