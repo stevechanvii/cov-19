@@ -102,6 +102,30 @@ export const fetchDailyData = async () => {
 };
 
 /**
+ * Fetch daily confirmed data by state
+ */
+export const fetchDailyStateData = async (country) => {
+    const stateUrl = `${url}/countries/${country.toLowerCase()}/confirmed`;
+
+    try {
+        const { data } = await axios.get(stateUrl);
+
+        const stateData = data.map((state) => ({
+            provinceState: state.provinceState,
+            confirmed: state.confirmed,
+            recovered: state.recovered,
+            deaths: state.deaths,
+            date: state.lastUpdate,
+        }));
+
+        // get the data of last 60 days
+        return stateData.slice(0, 20);
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+/**
  * Fetch countries
  */
 export const fetchCountries = async () => {

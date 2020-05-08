@@ -2,6 +2,7 @@ import React from 'react';
 
 import Cards from './components/Cards/Cards';
 import Chart from './components/Chart/Chart';
+import StateChart from './components/Chart/StateChart';
 // import CountryPicker from './components/CountryPicker/CountryPicker';
 import CountryFlagPicker from './components/CountryFlagPicker/CountryFlagPicker';
 import MapChart from './components/MapChart/MapChart';
@@ -59,7 +60,7 @@ class App extends React.Component {
             <div className={styles.container}>
                 <h1 className={styles.title}>COVID-19 TRACKER</h1>
                 <Cards conData={countryData} gloData={globalData} country={country} />
-                <CountryFlagPicker />
+                {/* <CountryFlagPicker /> */}
                 {/* <CountryPicker handleCountryChange={this.onPickerCountryChange} /> */}
                 <div className={styles.map}>
                     <MapChart
@@ -69,6 +70,7 @@ class App extends React.Component {
                     <ReactTooltip>{this.state.content}</ReactTooltip>
                 </div>
                 <Chart data={countryData} country={country} />
+                <StateChart country={country} />
             </div>
         );
     }

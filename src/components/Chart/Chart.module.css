@@ -4,6 +4,11 @@
     width: 75%;
 }
 
+.barchart__horizontal {
+    margin-top: 3rem;
+    margin-left: -2rem;
+}
+
 @media (max-width: 770px) {
     .container {
         width: 100%;
