@@ -30,6 +30,10 @@ const CountryFlagPicker = () => {
                 src='https://www.countryflags.io/ar/flat/64.png'
                 className={styles.flag__item}
             ></img>
+            <img
+                src='https://www.countryflags.io/ar/flat/64.png'
+                className={styles.flag__item}
+            ></img>
         </div>
     );
 };
