@@ -118,8 +118,14 @@ export const fetchDailyStateData = async (country) => {
             date: state.lastUpdate,
         }));
 
+        // Remove duplicate object by provinceState since it's the total, return a list of objects
+        const stateDataClean = stateData.filter(
+            (state, index, self) =>
+                index === self.findIndex((t) => t.provinceState === state.provinceState)
+        );
+
         // get the data of last 60 days
-        return stateData.slice(0, 20);
+        return stateDataClean.slice(0, 20);
     } catch (error) {
         console.log(error);
     }
