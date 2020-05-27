@@ -58,12 +58,9 @@ svg {
     vertical-align: middle;
 }
 
-.screen_large {
-    display: block;
-}
-
-.screen_small {
-    display: none;
+.footer {
+    font-size: 12px;
+    margin-top: 30px;
 }
 
 @media (max-width: 770px) {
@@ -78,13 +75,5 @@ svg {
     .map {
         margin-top: 0;
         margin-bottom: -7rem;
-    }
-
-    .screen_large {
-        display: none;
-    }
-
-    .screen_small {
-        display: block;
     }
 }

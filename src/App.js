@@ -62,7 +62,10 @@ class App extends React.Component {
             <div className={styles.container}>
                 <h1 className={styles.title}>COVID-19 TRACKER</h1>
                 <Cards conData={countryData} gloData={globalData} country={country} />
-                <CountryFlagPicker country={country} />
+                <CountryFlagPicker
+                    countrySelected={country}
+                    handleCountryChange={this.onPickerCountryChange}
+                />
                 <CountryPicker handleCountryChange={this.onPickerCountryChange} />
                 <div className={styles.map}>
                     <MapChart
@@ -75,6 +78,11 @@ class App extends React.Component {
                 <Table country={country} />
                 <StateChart country={country} />
                 <StateTable country={country} />
+                <p className={styles.footer}>
+                    Developed by <a href='https://github.com/stevechanvii/cov-19'>Steve Chan</a> |
+                    Data Source from{' '}
+                    <a href='https://github.com/mathdroid/covid-19-api'>Mathdro API</a>
+                </p>
             </div>
         );
     }

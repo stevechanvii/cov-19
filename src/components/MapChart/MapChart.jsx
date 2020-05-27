@@ -1,5 +1,5 @@
 import React, { useEffect, useState, memo } from 'react';
-import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
+import { ComposableMap, Geographies, Geography } from 'react-simple-maps';
 
 import styles from './MapChart.module.css';
 

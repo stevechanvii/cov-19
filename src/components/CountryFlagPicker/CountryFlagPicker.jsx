@@ -1,15 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import styles from './CountryFlagPicker.module.css';
 
-const CountryFlagPicker = ({ country }) => {
+const CountryFlagPicker = ({ countrySelected, handleCountryChange }) => {
     const countryList = [
         { au: 'Australia' },
-        { us: 'USA' },
+        { us: 'United States of America' },
         { br: 'Brazil' },
-        { ru: 'Russian' },
+        { ru: 'Russia' },
         { es: 'spain' },
-        { gb: 'United Kindom' },
+        { gb: 'United Kingdom' },
         { fr: 'France' },
         { de: 'Germany' },
         { tr: 'Turkey' },
@@ -18,10 +18,6 @@ const CountryFlagPicker = ({ country }) => {
         { cn: 'China' },
     ];
 
-    const [countryPicked, setCountryPicked] = useState('');
-
-    console.log(countryPicked);
-
     return (
         <div className={styles.flag}>
             {countryList.map((country) => (
@@ -29,10 +25,10 @@ const CountryFlagPicker = ({ country }) => {
                     src={`https://www.countryflags.io/${Object.keys(country)[0]}/flat/64.png`}
                     alt={`flag ${Object.values(country)[0]}`}
                     key={Object.keys(country)[0]}
-                    onClick={() => setCountryPicked(Object.values(country)[0])}
+                    onClick={() => handleCountryChange(Object.values(country)[0])}
                     className={styles.flag__item}
                     style={
-                        countryPicked == Object.values(country)[0]
+                        countrySelected === Object.values(country)[0]
                             ? { transform: 'scale(1.15)' }
                             : null
                     }
