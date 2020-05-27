@@ -1,7 +1,7 @@
 import React, { useEffect, useState, memo } from 'react';
 import { ComposableMap, Geographies, Geography, ZoomableGroup } from 'react-simple-maps';
 
-// import styles from './MapChart.module.css';
+import styles from './MapChart.module.css';
 
 const MapChart = ({ countryHovered, handleCountryChange }) => {
     useEffect(() => {});
@@ -18,7 +18,7 @@ const MapChart = ({ countryHovered, handleCountryChange }) => {
     };
 
     return (
-        <>
+        <div className={styles.map}>
             <ComposableMap
                 projection={'geoMercator'}
                 data-tip=''
@@ -70,7 +70,7 @@ const MapChart = ({ countryHovered, handleCountryChange }) => {
                 </Geographies>
                 {/* </ZoomableGroup> */}
             </ComposableMap>
-        </>
+        </div>
     );
 };
 

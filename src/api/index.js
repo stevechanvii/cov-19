@@ -94,8 +94,7 @@ export const fetchDailyData = async () => {
             date: dailyData.reportDate,
         }));
 
-        // get the data of last 60 days
-        return modifiedData.slice(-60);
+        return modifiedData;
     } catch (error) {
         console.log(error);
     }

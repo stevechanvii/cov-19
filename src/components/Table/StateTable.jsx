@@ -45,8 +45,8 @@ const StateTable = ({ country }) => {
     ];
 
     return (
-        <div>
-            {Object.keys(stateData).length > 1 ? (
+        <div className={styles.table}>
+            {Object.keys(stateData).length > 1 && country !== '' ? (
                 <div>
                     <p className={styles.table_title}>
                         State Data in {country ? country : 'Australia'}

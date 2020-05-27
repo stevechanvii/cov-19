@@ -1,21 +1,28 @@
 .flag {
-    width: 100%;
-    margin-top: 1rem;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: none;
 }
 
 .flag__item {
     cursor: pointer;
     transition: all 0.4s;
     transform-origin: bottom;
+    margin: 0 0.2rem;
 }
 
-.flag__item:not(:last-child) {
+/* .flag__item:not(:last-child) {
     margin-right: 2rem;
-}
+} */
 
 .flag__item:hover {
-    transform: scale(1.25);
+    transform: scale(1.15);
+}
+
+@media (max-width: 770px) {
+    .flag {
+        width: 100%;
+        margin-top: 1rem;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
 }

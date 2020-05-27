@@ -5,3 +5,14 @@
 .table_title {
     text-align: center;
 }
+
+.table {
+    display: none;
+}
+
+@media (max-width: 770px) {
+    .table {
+        margin-top: 50px;
+        display: block;
+    }
+}

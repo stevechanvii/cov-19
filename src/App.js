@@ -3,7 +3,7 @@ import React from 'react';
 import Cards from './components/Cards/Cards';
 import Chart from './components/Chart/Chart';
 import StateChart from './components/Chart/StateChart';
-// import CountryPicker from './components/CountryPicker/CountryPicker';
+import CountryPicker from './components/CountryPicker/CountryPicker';
 import CountryFlagPicker from './components/CountryFlagPicker/CountryFlagPicker';
 import Table from './components/Table/Table';
 import StateTable from './components/Table/StateTable';
@@ -62,8 +62,8 @@ class App extends React.Component {
             <div className={styles.container}>
                 <h1 className={styles.title}>COVID-19 TRACKER</h1>
                 <Cards conData={countryData} gloData={globalData} country={country} />
-                {/* <CountryFlagPicker /> */}
-                {/* <CountryPicker handleCountryChange={this.onPickerCountryChange} /> */}
+                <CountryFlagPicker />
+                <CountryPicker handleCountryChange={this.onPickerCountryChange} />
                 <div className={styles.map}>
                     <MapChart
                         countryHovered={this.onMapCountryHover}
@@ -72,7 +72,7 @@ class App extends React.Component {
                     <ReactTooltip>{this.state.content}</ReactTooltip>
                 </div>
                 <Chart data={countryData} country={country} />
-                <Table />
+                <Table country={country} />
                 <StateChart country={country} />
                 <StateTable country={country} />
             </div>

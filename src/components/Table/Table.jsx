@@ -5,7 +5,7 @@ import ReactTable from 'react-table-v6';
 import 'react-table-v6/react-table.css';
 import styles from './Table.module.css';
 
-const Table = () => {
+const Table = ({ country }) => {
     const [dailyData, setDailyData] = useState([]);
 
     useEffect(() => {
@@ -49,14 +49,18 @@ const Table = () => {
 
     return (
         <div>
-            <p className={styles.table_title}>Global Data by Date</p>
-            <ReactTable
-                data={tableData}
-                columns={columns}
-                // showPagination={false}
-                defaultPageSize={20}
-                className='-striped -highlight -center'
-            />
+            {country === '' ? (
+                <div className={styles.table}>
+                    <p className={styles.table_title}>Global Data by Date</p>
+                    <ReactTable
+                        data={tableData}
+                        columns={columns}
+                        // showPagination={false}
+                        defaultPageSize={20}
+                        className='-striped -highlight -center'
+                    />
+                </div>
+            ) : null}
         </div>
     );
 };
