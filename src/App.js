@@ -62,7 +62,7 @@ class App extends React.Component {
             <div className={styles.container}>
                 <h1 className={styles.title}>COVID-19 TRACKER</h1>
                 <Cards conData={countryData} gloData={globalData} country={country} />
-                <CountryFlagPicker />
+                <CountryFlagPicker country={country} />
                 <CountryPicker handleCountryChange={this.onPickerCountryChange} />
                 <div className={styles.map}>
                     <MapChart

@@ -1,59 +1,43 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import styles from './CountryFlagPicker.module.css';
 
-const CountryFlagPicker = () => {
+const CountryFlagPicker = ({ country }) => {
+    const countryList = [
+        { au: 'Australia' },
+        { us: 'USA' },
+        { br: 'Brazil' },
+        { ru: 'Russian' },
+        { es: 'spain' },
+        { gb: 'United Kindom' },
+        { fr: 'France' },
+        { de: 'Germany' },
+        { tr: 'Turkey' },
+        { in: 'India' },
+        { ir: 'Iran' },
+        { cn: 'China' },
+    ];
+
+    const [countryPicked, setCountryPicked] = useState('');
+
+    console.log(countryPicked);
+
     return (
         <div className={styles.flag}>
-            <img
-                src='https://www.countryflags.io/au/flat/64.png'
-                alt='flag US'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/us/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/br/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/ru/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/es/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/gb/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/fr/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/de/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/tr/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/in/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/ir/flat/64.png'
-                className={styles.flag__item}
-            ></img>
-            <img
-                src='https://www.countryflags.io/cn/flat/64.png'
-                className={styles.flag__item}
-            ></img>
+            {countryList.map((country) => (
+                <img
+                    src={`https://www.countryflags.io/${Object.keys(country)[0]}/flat/64.png`}
+                    alt={`flag ${Object.values(country)[0]}`}
+                    key={Object.keys(country)[0]}
+                    onClick={() => setCountryPicked(Object.values(country)[0])}
+                    className={styles.flag__item}
+                    style={
+                        countryPicked == Object.values(country)[0]
+                            ? { transform: 'scale(1.15)' }
+                            : null
+                    }
+                ></img>
+            ))}
         </div>
     );
 };
