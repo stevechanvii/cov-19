@@ -126,7 +126,7 @@ export const fetchDailyStateData = async (country) => {
         );
 
         // get the data of last 60 days
-        return stateDataClean.slice(0, 10);
+        return stateDataClean;
     } catch (error) {
         console.log(error);
     }

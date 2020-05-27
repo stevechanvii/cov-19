@@ -5,6 +5,8 @@ import Chart from './components/Chart/Chart';
 import StateChart from './components/Chart/StateChart';
 // import CountryPicker from './components/CountryPicker/CountryPicker';
 import CountryFlagPicker from './components/CountryFlagPicker/CountryFlagPicker';
+import Table from './components/Table/Table';
+import StateTable from './components/Table/StateTable';
 import MapChart from './components/MapChart/MapChart';
 import { fetchCountryData, fetchGlobalData } from './api';
 import ReactTooltip from 'react-tooltip';
@@ -70,7 +72,9 @@ class App extends React.Component {
                     <ReactTooltip>{this.state.content}</ReactTooltip>
                 </div>
                 <Chart data={countryData} country={country} />
+                <Table />
                 <StateChart country={country} />
+                <StateTable country={country} />
             </div>
         );
     }

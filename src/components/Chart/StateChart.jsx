@@ -24,7 +24,7 @@ const StateChart = ({ country }) => {
     let data = null;
     if (Object.keys(stateData).length) {
         data = {
-            labels: stateData.map((state) => state.provinceState),
+            labels: stateData.slice(0, 10).map((state) => state.provinceState),
             datasets: labels.map((label) => ({
                 label: Object.keys(label).toString(),
                 backgroundColor: label[Object.keys(label)],

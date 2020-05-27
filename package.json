@@ -20,6 +20,7 @@
         "react-moment": "^0.9.7",
         "react-scripts": "3.4.1",
         "react-simple-maps": "^2.0.0",
+        "react-table-v6": "^6.8.6",
         "react-tooltip": "^4.2.5"
     },
     "scripts": {
